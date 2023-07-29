@@ -1,0 +1,2 @@
+- No idea why S3 module couldn't use var.bucket_name as resource. Used {Resource  = "arn:aws:s3:::siren-frontend/*"} as a static solution for now.
+
