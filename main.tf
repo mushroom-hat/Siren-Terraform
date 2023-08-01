@@ -26,4 +26,10 @@ module "vpc" {
 
 module "elb" {
     source = ".//elb"
+    mainVPC_id  = module.vpc.mainVPC_id
+    subnet01_id = module.vpc.subnet01_id
+    subnet02_id = module.vpc.subnet02_id
+    internet_gateway_id = module.vpc.internet_gateway_id
+    default_security_group_id = module.vpc.default_security_group_id
+
 }
