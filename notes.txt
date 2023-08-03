@@ -1,2 +1,14 @@
 - No idea why S3 module couldn't use var.bucket_name as resource. Used {Resource  = "arn:aws:s3:::siren-frontend/*"} as a static solution for now.
 
+
+- after importing resources from aws, use terraform state show aws_ecs_cluster.SirenCluster > gen.tf to generate tf file
+
+# imports
+>terraform import aws_ecs_service.SirenSVC SirenCluster/SirenSVC
+>terraform import aws_ecs_service.SirenSVC SirenCluster/SirenSVC
+>terraform import aws_ecs_task_definition.SirenAPITaskDef arn:aws:ecs:ap-southeast-1:169454521281:task-definition/SirenAPITaskDef:5
+
+
+after provisioning infra,
+upload frontend to s3
+change cname record in dns provider to load balancer if needed
